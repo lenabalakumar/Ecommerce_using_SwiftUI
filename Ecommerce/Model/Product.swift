@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Product: Identifiable {
+struct Product: Identifiable, Equatable {
     var id: UUID
     var productName: String
     var productSKU: String
@@ -18,7 +18,6 @@ struct Product: Identifiable {
         self.productName = productName
         self.productSKU = productSKU
         self.productPrice = productPrice
-        
     }
 }
 

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct CardView: View {
     var product: Product
-    var cart: Cart
     @State private var quantity = 0
+    @ObservedObject var cartManager: CartManager
     var body: some View {
         VStack {
             HStack {
@@ -23,9 +23,7 @@ struct CardView: View {
                 Text(product.productSKU)
                 Spacer()
                 Button(action: {
-                    quantity += 1
-                    let cartProduct = CartProduct(product: product, productQuantity: quantity)
-//                    cart.addItem(cartProduct: cartProduct)
+                    cartManager.addItem(cartItem: product)
                 }) {
                     Text("Add to cart")
                 }
@@ -48,6 +46,6 @@ struct TealButtonStyle: ButtonStyle {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(product: Product.sampleData[0], cart: Cart.sampleData[0])
+        CardView(product: Product.sampleData[0], cartManager: CartManager(cart: Cart(products: [CartProduct.appleCartProduct, CartProduct.bananaCartPRoduct, CartProduct.orangeCartProduct], total: 100)))
     }
 }
