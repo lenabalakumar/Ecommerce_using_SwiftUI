@@ -20,6 +20,7 @@ class CartManager: ObservableObject {
         
         if (cart.products.count < 1) {
             cart.products.append(itemToAdd)
+            calculateTotal(cart: cart)
         } else {
             var itemIndex = -1
             for (index, product) in cart.products.enumerated() {
@@ -31,15 +32,18 @@ class CartManager: ObservableObject {
             if (itemIndex != -1) {
                 if(cart.products[itemIndex].productQuantity < 5) {
                     cart.products[itemIndex].productQuantity += 1
+                    calculateTotal(cart: cart)
                 }
             } else {
                 cart.products.append(itemToAdd)
+                calculateTotal(cart: cart)
             }
         }
     }
     
     func removeItem(at offsets: IndexSet) {
         cart.products.remove(atOffsets: offsets)
+        calculateTotal(cart: cart)
     }
     
     func reduceQuantity(product: Product) {
@@ -53,13 +57,21 @@ class CartManager: ObservableObject {
         
         if(cart.products[itemIndex].productQuantity > 1) {
             cart.products[itemIndex].productQuantity -= 1
+            calculateTotal(cart: cart)
         } else {
             cart.products.remove(at: itemIndex)
+            calculateTotal(cart: cart)
         }
     }
     
     func removeAll() {
         //TODO: Implement remove all items functionality
+        cart.total = 0.0
+        cart.products = []
+    }
+    
+    func calculateTotal(cart: Cart) {
+        self.cart.total =  Float(cart.products.reduce(0) { $0 + $1.productQuantity * Int($1.product.productPrice)})
     }
 }
 

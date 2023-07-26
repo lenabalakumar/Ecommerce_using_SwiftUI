@@ -13,30 +13,43 @@ struct CartView: View {
         if(cartManager.cart.products.count < 1) {
             Text("No items in cart")
         } else {
-            List {
-                ForEach(cartManager.cart.products) {   product in
-                    HStack {
-                        Text(product.product.productName)
-                        Spacer()
+            VStack(alignment: .trailing) {
+                List {
+                    ForEach(cartManager.cart.products) {   product in
                         HStack {
-                            Button {
-                                cartManager.reduceQuantity(product: product.product)
-                            } label: {
-                                Image(systemName: "minus.circle.fill")
+                            Text(product.product.productName)
+                            Spacer()
+                            HStack {
+                                Button {
+                                    cartManager.reduceQuantity(product: product.product)
+                                } label: {
+                                    Image(systemName: "minus.circle.fill")
+                                }
+                                Text(String(product.productQuantity))
+                                Button {
+                                    cartManager.addItem(cartItem: product.product)
+                                } label: {
+                                    Image(systemName: "plus.circle.fill")
+                                }
                             }
-                            Text(String(product.productQuantity))
-                            Button {
-                                cartManager.addItem(cartItem: product.product)
-                            } label: {
-                                Image(systemName: "plus.circle.fill")
-                            }
+                            .buttonStyle(.plain)
                         }
-                        .buttonStyle(.plain)
+                    }
+                    .onDelete(perform: cartManager.removeItem)
+                }
+                .listStyle(.plain)
+                Text("Total: \(cartManager.cart.total, specifier: "%.2f")")
+            }
+            .padding()
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button {
+                        cartManager.removeAll()
+                    } label: {
+                        Image(systemName: "trash")
                     }
                 }
-                .onDelete(perform: cartManager.removeItem)
             }
-            .listStyle(.plain)
         }
     }
 }
