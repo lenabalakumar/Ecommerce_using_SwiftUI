@@ -56,7 +56,10 @@ class CartManager: ObservableObject {
         } else {
             cart.products.remove(at: itemIndex)
         }
-
+    }
+    
+    func removeAll() {
+        //TODO: Implement remove all items functionality
     }
 }
 
