@@ -11,6 +11,8 @@ struct CardView: View {
     var product: Product
     @State private var quantity = 0
     @ObservedObject var cartManager: CartManager
+    let isItemInCart: Bool
+    
     var body: some View {
         VStack {
             HStack {
@@ -25,9 +27,10 @@ struct CardView: View {
                 Button(action: {
                     cartManager.addItem(cartItem: product)
                 }) {
-                    Text("Add to cart")
+                    isItemInCart == true ? Text("In cart") : Text("Add to cart")
                 }
                 .buttonStyle(TealButtonStyle())
+                .disabled(isItemInCart)
             }
         }
     }
@@ -46,6 +49,9 @@ struct TealButtonStyle: ButtonStyle {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(product: Product.sampleData[0], cartManager: CartManager(cart: Cart(products: [CartProduct.appleCartProduct, CartProduct.bananaCartPRoduct, CartProduct.orangeCartProduct], total: 100)))
+        Group {
+            CardView(product: Product.sampleData[0], cartManager: CartManager(cart: Cart(products: [CartProduct.appleCartProduct, CartProduct.bananaCartPRoduct, CartProduct.orangeCartProduct], total: 100)), isItemInCart: false)
+            CardView(product: Product.sampleData[0], cartManager: CartManager(cart: Cart(products: [CartProduct.appleCartProduct, CartProduct.bananaCartPRoduct, CartProduct.orangeCartProduct], total: 100)), isItemInCart: true)
+        }
     }
 }

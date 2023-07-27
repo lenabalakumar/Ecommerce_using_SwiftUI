@@ -15,8 +15,9 @@ struct ListView: View {
         NavigationStack() {
             VStack {
                     List(products) { product in
-                        CardView(product: product, cartManager: cartManager)
+                        CardView(product: product, cartManager: cartManager, isItemInCart: cartManager.isItemPresentInCart(product: product))
                     }
+                    .listStyle(.plain)
                 }
                 .navigationTitle("Products")
                 .toolbar {
