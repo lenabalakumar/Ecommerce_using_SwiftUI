@@ -27,6 +27,9 @@
 		0C54F8F62A72B90400BBA3AB /* PaymentSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C54F8F52A72B90400BBA3AB /* PaymentSuccess.swift */; };
 		0C9C9FF32A671183000A167B /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9C9FF22A671183000A167B /* CartManager.swift */; };
 		0C9C9FF62A672E4B000A167B /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9C9FF52A672E4B000A167B /* CartView.swift */; };
+		0CC729972A73CDDE00761E92 /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC729962A73CDDE00761E92 /* CartButton.swift */; };
+		0CC729992A73CF6100761E92 /* CartCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC729982A73CF6100761E92 /* CartCard.swift */; };
+		0CC7299B2A73D1AB00761E92 /* CartList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC7299A2A73D1AB00761E92 /* CartList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,9 @@
 		0C54F8F52A72B90400BBA3AB /* PaymentSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSuccess.swift; sourceTree = "<group>"; };
 		0C9C9FF22A671183000A167B /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 		0C9C9FF52A672E4B000A167B /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		0CC729962A73CDDE00761E92 /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
+		0CC729982A73CF6100761E92 /* CartCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCard.swift; sourceTree = "<group>"; };
+		0CC7299A2A73D1AB00761E92 /* CartList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +133,9 @@
 				0C219D302A654C4D0048D977 /* CardView.swift */,
 				0C9C9FF52A672E4B000A167B /* CartView.swift */,
 				0C54F8F52A72B90400BBA3AB /* PaymentSuccess.swift */,
+				0CC729962A73CDDE00761E92 /* CartButton.swift */,
+				0CC729982A73CF6100761E92 /* CartCard.swift */,
+				0CC7299A2A73D1AB00761E92 /* CartList.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -216,6 +225,7 @@
 			files = (
 				0C34CA652A65600900185CEF /* ListView.swift in Sources */,
 				0C9C9FF62A672E4B000A167B /* CartView.swift in Sources */,
+				0CC7299B2A73D1AB00761E92 /* CartList.swift in Sources */,
 				0C9C9FF32A671183000A167B /* CartManager.swift in Sources */,
 				0C54F8F42A72A57800BBA3AB /* PaymentManager.swift in Sources */,
 				0C54F8F62A72B90400BBA3AB /* PaymentSuccess.swift in Sources */,
@@ -223,6 +233,8 @@
 				0C34CA672A6568C900185CEF /* Cart.swift in Sources */,
 				0C34CA632A655BFB00185CEF /* Product.swift in Sources */,
 				0C219D2F2A654C4D0048D977 /* EcommerceApp.swift in Sources */,
+				0CC729992A73CF6100761E92 /* CartCard.swift in Sources */,
+				0CC729972A73CDDE00761E92 /* CartButton.swift in Sources */,
 				0C12DBA32A712D6A00427527 /* CartProduct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
