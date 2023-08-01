@@ -13,7 +13,7 @@ struct EcommerceApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ListView(products: Product.sampleData, cartManager: cartManager)
+            ListView()
         }
     }
 }

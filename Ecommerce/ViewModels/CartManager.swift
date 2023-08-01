@@ -20,7 +20,6 @@ class CartManager: ObservableObject {
         
         if (cart.products.count < 1) {
             cart.products.append(itemToAdd)
-            isItemPresentInCart(product: cartItem)
             calculateTotal(cart: cart)
         } else {
             var itemIndex = -1
@@ -72,10 +71,6 @@ class CartManager: ObservableObject {
     
     func calculateTotal(cart: Cart) {
         self.cart.total =  Float(cart.products.reduce(0) { $0 + $1.productQuantity * Int($1.product.productPrice)})
-    }
-    
-    func isItemPresentInCart(product: Product) -> Bool {
-        return cart.products.contains(where: { $0.product.id == product.id})
     }
 }
 
